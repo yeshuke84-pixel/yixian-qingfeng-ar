@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#171713" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>一线清风 · AR古村地图</title>
+  </head>
+  <body>
+    <main id="app">
+      <section class="camera-screen" id="cameraScreen" aria-hidden="true">
+        <video id="cameraVideo" autoplay muted playsinline></video>
+        <div class="camera-shade" aria-hidden="true"></div>
+
+        <div class="ar-hud" aria-hidden="true">
+          <span class="hud-corner hud-corner--tl"></span>
+          <span class="hud-corner hud-corner--tr"></span>
+          <span class="hud-corner hud-corner--bl"></span>
+          <span class="hud-corner hud-corner--br"></span>
+          <div class="hud-link">AR LINK <b></b><b></b><b></b><b></b></div>
+          <aside class="hud-locations">
+            <strong>地点信标</strong>
+            <span>④ 织造坊</span><span>⑤ 神龛室</span><span>⑥ 戏台</span><span>⑩ 廊桥桥廊</span>
+          </aside>
+          <div class="hud-environment">环境扫描中<br><strong>AR 已连接</strong></div>
+        </div>
+
+        <header class="camera-header">
+          <div>
+            <strong>《一线清风》</strong>
+            <span>鸢尾岭 · AR观察模式</span>
+          </div>
+          <button class="quiet-button" id="resetButton" type="button" hidden>复位</button>
+        </header>
+
+        <section class="map-stage" id="mapStage" aria-label="可拖动、缩放和旋转的古村纸雕地图">
+          <div class="map-board" id="mapBoard">
+            <img class="map-image" src="%BASE_URL%assets/map/yuweiling-map.png" alt="一线清风鸢尾岭古村手绘地图" draggable="false" />
+            <div class="anchor-layer" id="anchorLayer" aria-hidden="true"></div>
+          </div>
+          <div class="building-layer" id="buildingLayer"></div>
+        </section>
+
+        <p class="gesture-hint" id="gestureHint">单指拖动 · 双指缩放和旋转</p>
+        <p class="portrait-hint">横屏体验效果更佳</p>
+        <button class="place-button" id="placeButton" type="button">放置鸢尾岭</button>
+        <button class="exit-button" id="exitButton" type="button" aria-label="退出摄像头">×</button>
+
+        <section class="location-sheet" id="locationSheet" aria-hidden="true">
+          <div class="sheet-handle" aria-hidden="true"></div>
+          <button class="sheet-close" id="sheetClose" type="button" aria-label="关闭地点信息">×</button>
+          <p class="location-number" id="locationNumber"></p>
+          <h2 id="locationName"></h2>
+          <p class="location-description" id="locationDescription"></p>
+          <button class="enter-button" id="enterButton" type="button">立即前往</button>
+        </section>
+      </section>
+
+      <section class="entry-screen" id="entryScreen">
+        <div class="entry-mark" aria-hidden="true">清</div>
+        <p class="entry-kicker">《一线清风》</p>
+        <h1>AR古村地图</h1>
+        <p class="entry-copy"><strong>建议横屏体验</strong><br>横屏可以获得更完整的 AR 古村地图视野</p>
+        <button class="start-button" id="startButton" type="button">进入体验</button>
+        <p class="permission-copy">点击后请允许使用摄像头</p>
+        <p class="error-message" id="errorMessage" role="alert"></p>
+      </section>
+
+      <section class="transition-screen" id="transitionScreen" aria-hidden="true">
+        <p class="transition-kicker">鸢尾岭古村</p>
+        <h2 id="transitionName"></h2>
+        <p>正在进入该地点……</p>
+        <button id="returnButton" type="button">返回地图</button>
+      </section>
+
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

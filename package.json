@@ -1,0 +1,17 @@
+{
+  "name": "yixian-qingfeng-camera-paper-map",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "dev:https": "vite --host 0.0.0.0 --mode https",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-basic-ssl": "1.2.0",
+    "vite": "8.2.2"
+  },
+  "devDependencies": {}
+}
